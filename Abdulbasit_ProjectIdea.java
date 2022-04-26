@@ -1,4 +1,4 @@
-public class Abdulbasit {
+public class Abdulbasit_ProjectIdea {
     public static void main(String[] args)
     {
         System.out.println("Hello Team!" +
