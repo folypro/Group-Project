@@ -3,7 +3,7 @@ public class Abdulbasit_ProjectIdea {
     {
         System.out.println("Hello Team!" +
                 "I'm Abdulbasit Adeniji!" +
-                "\n Project idea are a billing or management system! Example, School billing system or store management system!");
+                "\n Project idea are  billing or management system! Example, School billing system or store management system!");
     }
 
 }
