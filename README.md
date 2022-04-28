@@ -17,4 +17,5 @@ and calculate/send them back to the main.
 Abdulbasit Adeniji- Since Zach is taking the role of send input back to the main, I will be doing the layout of the application
 (stage, scene, etc....). And if we are using any database I can also handle that and give someone else the layout.
 
-Andrew Angell- i was quite late to the party, but ill see what i can do to contribute.
+Andrew Angell- regarding my role in this, ill be handling debugging and checking to ensure that the code within this functions properly.
+id also like to help with doing said calculations.
