@@ -1,7 +1,8 @@
-# TEAM-1
+# TEAM-1 HELLO BOIS
 
 Team 1 Read me file - Zach Bowman
 Team 1 Read me file - Abdulbasit Adeniji
+Team 1 Read me file- Andrew Angell
 
 The project that was selected 
 is a Mortgage Calculator using JavaFX.
@@ -15,3 +16,5 @@ and calculate/send them back to the main.
 
 Abdulbasit Adeniji- Since Zach is taking the role of send input back to the main, I will be doing the layout of the application
 (stage, scene, etc....). And if we are using any database I can also handle that and give someone else the layout.
+
+Andrew Angell- i was quite late to the party, but ill see what i can do to contribute.
