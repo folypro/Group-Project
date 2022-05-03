@@ -22,6 +22,9 @@ public class Athenas_demo extends Application
 {
     // Global Variables
      String name;
+     int user_loan_amount;
+     int user_loan_year;
+     double user_loan_interest_rates;
 
     public static void main(String[] args)
     {
