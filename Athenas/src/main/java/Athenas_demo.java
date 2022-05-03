@@ -18,21 +18,18 @@ import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
 
-public class Athenas_demo extends Application
-{
+public class Athenas_demo extends Application {
     // Global Variables
 
     String userName;
-    int user_loan_amount;
 
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage)
-    {
+    public void start(Stage primaryStage) {
 
         // Labels
 
