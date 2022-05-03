@@ -14,6 +14,16 @@
 
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.control.ListView;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
@@ -25,8 +35,10 @@ public class Athenas_demo extends Application
     String userName;
     int user_loan_amount;
     int user_loan_year;
+    double user_loan_interest_rates;
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 
@@ -34,6 +46,8 @@ public class Athenas_demo extends Application
     public void start(Stage primaryStage) {
 
         // Labels
+        Label myLabel = new Label("ATHENAS MORTGAGE CALCULATOR");
+
 
         //Text Fields
 
