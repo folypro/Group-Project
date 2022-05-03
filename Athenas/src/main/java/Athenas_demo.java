@@ -21,8 +21,7 @@ import static javafx.application.Application.launch;
 public class Athenas_demo extends Application
 {
     // Global Variables
-
-
+     String name;
 
     public static void main(String[] args)
     {
