@@ -18,11 +18,13 @@ import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
 
-public class Athenas_demo extends Application {
+public class Athenas_demo extends Application
+{
+
     // Global Variables
-
     String userName;
-
+    int user_loan_amount;
+    int user_loan_year;
 
     public static void main(String[] args) {
         launch(args);
