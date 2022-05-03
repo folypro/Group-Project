@@ -22,7 +22,8 @@ public class Athenas_demo extends Application
 {
     // Global Variables
 
-
+    String userName;
+    int user_loan_amount;
 
     public static void main(String[] args)
     {
