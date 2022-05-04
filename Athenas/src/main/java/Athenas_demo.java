@@ -118,14 +118,21 @@ public class Athenas_demo extends Application {
         Button calcButton = new Button("RESULT");
 
         //Event handler
-        calcButton.setOnAction(event ->
-
-        {
-
-
-
-            
+        calcButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                double l= Double.parseDouble(text_field_users_loan_amount.getText()); //Double to hold the loan value
+                double y = (Double.parseDouble(text_field_users_loan_years.getText()) * 12); //Double to hold the years
+                double r = (Double.parseDouble(text_field_users_interest_rate.getText()) / 100); //Double to hold the rate
+                double total = (l*( r*(Math.pow((1+r),y ))/ (Math.pow((1+r),y) -1))); //Calculates the total
+                r = r*100;
+                label_interest_paid.setText("The interest rate you had was " + r +"%");//Changes interest paid text to reflect the numbers
+                label_total_amount_paid.setText("The total price of the loan was $" + l );// changes total amount paid text to reflect numbers
+                label_monthly_mortgage.setText("The total you will pay in a month is $" + total + " for " + y + " months.");//changes the text accordingly
+            }
         });
+
+
 
         // HBox or VBox information
 
