@@ -45,7 +45,7 @@ public class Athenas_demo extends Application {
 
         // Labels
         Label myLabel = new Label("ATHENAS MORTGAGE CALCULATOR");
-s
+        Label loan_amount_prompt = new Label("Please enter the loan amount for your mortgage:");
 
         //Text Fields
 
