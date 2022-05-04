@@ -14,11 +14,11 @@
 
 
 import javafx.application.Application;
-import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.control.ListView;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -36,6 +36,15 @@ public class Athenas_demo extends Application {
     int user_loan_year;
     double user_loan_interest_rates;
 
+    private Label myLabel;
+    private Label mortgage_calc_description;
+    private Label loan_amount_prompt;
+    private Label loan_interest_rate_prompt;
+
+    //Empty fields that will hold the total amount paid, interest paid, and monthly mortgage.
+    private TextField text_field_total_amount_paid;
+    private TextField text_field_interest_paid;
+    private TextField text_field_monthly_mortgage;
     public static void main(String[] args) {
         launch(args);
     }
@@ -44,7 +53,7 @@ public class Athenas_demo extends Application {
     public void start(Stage primaryStage) {
 
         // Labels
-        Label myLabel = new Label("ATHENAS MORTGAGE CALCULATOR");
+        Label myLabel = new Label("ATHENA'S MORTGAGE CALCULATOR");
         //Will be the description of the application to user
         Label mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
                 "Enter all required information for your monthly payment.");
@@ -55,8 +64,18 @@ public class Athenas_demo extends Application {
 
 
         //Text Fields
+        text_field_interest_paid = new TextField();
+        text_field_total_amount_paid = new TextField();
+        text_field_monthly_mortgage = new TextField();
 
         // Button to convert the information
+        Button calcButton = new Button("RESULT");
+
+        //Event handler
+        calcButton.setOnAction(event ->{
+            
+        });
+
 
         // HBox or VBox information
 
