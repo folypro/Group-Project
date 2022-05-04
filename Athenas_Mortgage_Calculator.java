@@ -1,4 +1,5 @@
 // Zach Bowman
+//Abdulbasit Adeniji
 // Started 05/02/2022
 // Athena's Mortgage Calculator
 // Description: This program will take the user's information, loan amount, loan term, loan rate.
@@ -8,10 +9,22 @@
 // I will commit this to github so everyone can add their touches and part to it before it is due.
 // Please make sure to help with the outline of our project or add something.
 
+
 import javafx.application.Application;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.awt.Label;
 
 public class Athenas_Mortgage_Calculator extends Application
 {
@@ -55,8 +68,9 @@ public class Athenas_Mortgage_Calculator extends Application
 
                 loan_interest_rate_prompt = new Label("Please enter the interest rate for your loan:"), // Will be the description to get the interest rate from user.
 
-                mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
-                        " Enter all required information for your monthly payment."); // Will be the description of the application to the user.
+                mortgage_calc_description = new Label("ATHENA'S MORTGAGE CALCULATOR \n" +
+                        "Welcome to Athena's Mortgage Calculator. \n" +
+                        "Enter all required information for your monthly payment."); // Will be the description of the application to the user.
 
         //Text Fields
 
