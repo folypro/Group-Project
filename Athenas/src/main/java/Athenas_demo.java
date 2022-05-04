@@ -45,7 +45,14 @@ public class Athenas_demo extends Application {
 
         // Labels
         Label myLabel = new Label("ATHENAS MORTGAGE CALCULATOR");
+        //Will be the description of the application to user
+        Label mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
+                "Enter all required information for your monthly payment.");
+        //Will be the description to get the user's information for loan amount, years of the loan, and interest rate from the user.
         Label loan_amount_prompt = new Label("Please enter the loan amount for your mortgage:");
+        Label loan_year_prompt = new Label("Please enter the years your loan is for:");
+        Label loan_interest_rate_prompt = new Label("Please enter the interest rate for your loan:");
+
 
         //Text Fields
 
