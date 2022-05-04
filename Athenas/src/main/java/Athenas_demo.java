@@ -12,7 +12,7 @@ package Athenas.src.main.java;
 
 //Abdulbasit Adeniji -- I will be working on the input section for the user on 5/2/2022
 
-//Andrew Angell -- i will be working on the Calcbutton section for the user on 5/4/2022
+//Andrew Angell -- i will be working on the Calcbutton section for the user on 5/4/2022.
 
 
 import javafx.application.Application;
