@@ -28,8 +28,7 @@ import javafx.stage.Stage;
 
 import static javafx.application.Application.launch;
 
-public class Athenas_demo extends Application
-{
+public class Athenas_demo extends Application {
 
     // Global Variables
     String userName;
@@ -37,8 +36,7 @@ public class Athenas_demo extends Application
     int user_loan_year;
     double user_loan_interest_rates;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 
@@ -47,7 +45,7 @@ public class Athenas_demo extends Application
 
         // Labels
         Label myLabel = new Label("ATHENAS MORTGAGE CALCULATOR");
-
+s
 
         //Text Fields
 
