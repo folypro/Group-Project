@@ -37,11 +37,10 @@ public class Athenas_demo extends Application {
     // String Global
      String userName;
 
-    // Int Global
-    int user_loan_amount;
-    int user_loan_year;
 
     // Double Global
+    double user_loan_amount;
+    double user_loan_year;
     double user_loan_interest_rates;
 
     // Global Labels
@@ -66,6 +65,7 @@ public class Athenas_demo extends Application {
 
     //Empty fields that will hold the total amount paid, interest paid, and monthly mortgage and name
     private TextField
+
                     text_field_users_name, // Users input for his name.
 
                     text_field_users_loan_amount, // Users input for the loan amount.
@@ -83,58 +83,107 @@ public class Athenas_demo extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        // Labels
+            // Labels
 
-        // Application name
-        Label myLabel = new Label("ATHENA'S MORTGAGE CALCULATOR");
+            // Application name
+            Label myLabel = new Label("ATHENA'S MORTGAGE CALCULATOR");
 
-        //Will be the description of the application to user
-        Label mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
-                "Enter all required information for your monthly payment.");
+            //Will be the description of the application to user
+            Label mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
+                    "Enter all required information for your monthly payment.");
 
-        //Will be the description to get the user's information for loan amount, years of the loan, and interest rate from the user.
-        Label loan_amount_prompt = new Label("Please enter the loan amount for your mortgage:");
+            //Will be the description to get the user's information for loan amount, years of the loan, and interest rate from the user.
+            Label loan_amount_prompt = new Label("Please enter the loan amount for your mortgage: ");
 
-        Label loan_year_prompt = new Label("Please enter the years your loan is for:");
+            Label loan_year_prompt = new Label("Please enter the years your loan is for: ");
 
-        Label loan_interest_rate_prompt = new Label("Please enter the interest rate for your loan:");
+            Label loan_interest_rate_prompt = new Label("Please enter the interest rate for your loan: ");
 
-        Label ask_user_his_name = new Label("Please tell me your name, I am Athena and you are?:");
-
-
-        // labels for the output for VBox
-        Label
-                description_name = new Label("Here are your results "), // name will be inserted via HBox.
-                description_total_amount_paid = new Label("Total amount paid:"),
-                description_interest_paid = new Label("Interest paid:"),
-                description_monthly_mortage = new Label("Monthly mortgage:");
+            Label ask_user_his_name = new Label("Please tell me your name, I am Athena and you are?: ");
 
 
-        //Text Fields
-        text_field_users_name = new TextField();
-        text_field_users_loan_amount = new TextField();
-        text_field_users_interest_rate = new TextField();
-        text_field_users_loan_years = new TextField();
+            // labels for the output for VBox
+            Label
+                    description_name = new Label("Here are your results "), // name will be inserted via HBox.
+                    description_total_amount_paid = new Label("Total amount paid: "),
+                    description_interest_paid = new Label("Interest paid: "),
+                    description_monthly_mortage = new Label("Monthly mortgage: ");
 
-        // Button to convert the information
-        Button calcButton = new Button("RESULT");
 
-        //Event handler
-        calcButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                double l= Double.parseDouble(text_field_users_loan_amount.getText()); //Double to hold the loan value
-                double y = (Double.parseDouble(text_field_users_loan_years.getText()) * 12); //Double to hold the years
-                double r = (Double.parseDouble(text_field_users_interest_rate.getText()) / 100); //Double to hold the rate
-                double total = (l*( r*(Math.pow((1+r),y ))/ (Math.pow((1+r),y) -1))); //Calculates the total
-                r = r*100;
-                label_interest_paid.setText("The interest rate you had was " + r +"%");//Changes interest paid text to reflect the numbers
-                label_total_amount_paid.setText("The total price of the loan was $" + l );// changes total amount paid text to reflect numbers
-                label_monthly_mortgage.setText("The total you will pay in a month is $" + total + " for " + y + " months.");//changes the text accordingly
+            //Text Fields
+            text_field_users_name = new TextField("Stranger");
+            text_field_users_loan_amount = new TextField();
+            text_field_users_interest_rate = new TextField();
+            text_field_users_loan_years = new TextField();
+
+            // Button to convert the information
+            Button calcButton = new Button("RESULT");
+
+        // Event Handler
+        calcButton.setOnAction(event ->
+        {
+
+            // Set the users name
+            label_users_name.setText(text_field_users_name.getText());
+
+            // Getting Loan from user
+            Double loan = Double.parseDouble(text_field_users_loan_amount.getText());
+
+            // Making sure loan is filled in
+            if ( loan > 0) {
+
+                // Getting C/interest from the user
+                Double interest = Double.parseDouble(text_field_users_interest_rate.getText());
+
+                // Making sure interest is filled in
+                if (interest > 0) {
+
+                    // Getting N or Number of payments
+                    Double years = Double.parseDouble(text_field_users_loan_years.getText());
+
+                    // Making sure years is filled in
+                    if (years > 0) {
+                        // Payments need to be x12 for months
+                        Double n_or_months = years * 12;
+
+                        // Interest needs to be divided by 12
+                        Double interest_per_month_or_c = (interest / 12) / 100;
+
+                        // Interest needs plus 1
+                        Double c_and_1 = interest_per_month_or_c + 1;
+
+                        // c and 1 to the power of months
+                        Double math_power_c_1_months = Math.pow(c_and_1, n_or_months);
+
+                        // Monthly payments
+                        Double monthly_payments = loan * (interest_per_month_or_c * (math_power_c_1_months)) / ((math_power_c_1_months) - 1);
+
+                        // Set monthly mortgage to the new amount
+                        label_monthly_mortgage.setText(String.format("%,.0f$", monthly_payments));
+
+                        // Find the total amount paid
+                        Double total_amount = monthly_payments * n_or_months;
+
+                        // Set the total amount
+                        label_total_amount_paid.setText(String.format("%,.2f$", total_amount));
+
+                        // Find the interest paid
+                        Double interest_only = total_amount - loan;
+
+                        // Set the interest paid
+                        label_interest_paid.setText(String.format("%,.2f$", interest_only));
+                    }
+                }
+
             }
+
         });
 
-
+        // Needs this to hold the information or throws an error.
+        label_interest_paid = new Label();
+        label_total_amount_paid = new Label();
+        label_monthly_mortgage = new Label();
+        label_users_name = new Label();
 
         // HBox or VBox information
 
@@ -168,6 +217,7 @@ public class Athenas_demo extends Application {
         // Vbox to organize the HBox and the rest of the questions
         VBox v_box_organizer = new VBox
                 (
+                        10,
                         myLabel,
                         mortgage_calc_description,
                         h_box_1_inputs_and_questions,
@@ -182,17 +232,21 @@ public class Athenas_demo extends Application {
                 );
 
 
-        // alignment if needed
+        //Set the position
+        v_box_organizer.setAlignment(Pos.CENTER);
 
-        // padding
+        //set the padding!
+        v_box_organizer.setPadding(new Insets(15));
 
         // Scene
+        Scene scene = new Scene(v_box_organizer, 800,800);
 
         // Stage
-
+        primaryStage.setScene(scene);
         // Title the stage
-
+        primaryStage.setTitle("ATHENA'S MORTGAGE CALCULATOR");
         // Show window
+        primaryStage.show();
 
     }
 }
