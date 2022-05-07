@@ -27,12 +27,17 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import java.io.*;
+import java.util.Scanner; // import the scanner we will use for this project
+import java.io.FileWriter;
+import java.io.PrintWriter;
 
 import static javafx.application.Application.launch;
 
 public class Athenas_demo extends Application {
 
-    // Global Variables
+    // Global Variable
+
 
     // String Global
      String userName;
@@ -75,13 +80,14 @@ public class Athenas_demo extends Application {
                     text_field_users_interest_rate; // Users input for the interest rate.
 
 
-
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
+
+
 
             // Labels
 
@@ -143,6 +149,10 @@ public class Athenas_demo extends Application {
 
                     // Making sure years is filled in
                     if (years > 0) {
+
+
+
+
                         // Payments need to be x12 for months
                         Double n_or_months = years * 12;
 
@@ -172,6 +182,30 @@ public class Athenas_demo extends Application {
 
                         // Set the interest paid
                         label_interest_paid.setText(String.format("%,.2f$", interest_only));
+
+
+                        // create a file to store data
+                        String file_name ="Housing_info.txt";
+                        //Create the output file we will use
+                        FileWriter total_games = null;
+                        try {
+                            total_games = new FileWriter(file_name, true);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        PrintWriter out_put_file = new PrintWriter(total_games);
+
+                        // Write to the file
+                        out_put_file.println(label_users_name);
+                        out_put_file.println(label_monthly_mortgage);
+                        out_put_file.println(label_total_amount_paid);
+                        out_put_file.println(label_interest_paid);
+
+
+
+                        // Close the file.
+                        out_put_file.close();
+
                     }
                 }
 
@@ -247,6 +281,7 @@ public class Athenas_demo extends Application {
         primaryStage.setTitle("ATHENA'S MORTGAGE CALCULATOR");
         // Show window
         primaryStage.show();
+
 
     }
 }
