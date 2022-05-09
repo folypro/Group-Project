@@ -1,0 +1,8 @@
+Label@2283c2f3[styleClass=label]'0.01$'
+Label@2cc7483e[styleClass=label]'0.01$'
+Label@29f84371[styleClass=label]'Stranger'
+Label@dbe74de[styleClass=label]'0.01$'
+Label@43adb0c0[styleClass=label]'Zach'
+Label@4b5af4ba[styleClass=label]'600$'
+Label@6f79d3ef[styleClass=label]'215,838.19$'
+Label@11b57eca[styleClass=label]'115,838.19$'
