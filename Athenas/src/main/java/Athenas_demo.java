@@ -9,6 +9,7 @@ package Athenas.src.main.java;
 // Zach Bowman -- For other in the team, I have started getting the outline of our project together.
 // I will commit this to github so everyone can add their touches and part to it before it is due.
 // Please make sure to help with the outline of our project or add something.
+// I will help with calcution and variables. organizing.
 
 //Abdulbasit Adeniji -- I will be working on the input section for the user on 5/2/2022
 
@@ -150,9 +151,6 @@ public class Athenas_demo extends Application {
                     // Making sure years is filled in
                     if (years > 0) {
 
-
-
-
                         // Payments need to be x12 for months
                         Double n_or_months = years * 12;
 
@@ -234,6 +232,7 @@ public class Athenas_demo extends Application {
         // Loan lifespan in years input
         HBox h_box_4_inputs_and_questions = new HBox(loan_year_prompt,text_field_users_loan_years);
 
+
         // HBox for outputs
         HBox
                 // Name output
@@ -264,8 +263,7 @@ public class Athenas_demo extends Application {
                         output_3_h_box_interest_paid,
                         output_4_h_box_monthly_mortgage
                 );
-
-
+      
         //Set the position
         v_box_organizer.setAlignment(Pos.CENTER);
 
@@ -281,7 +279,6 @@ public class Athenas_demo extends Application {
         primaryStage.setTitle("ATHENA'S MORTGAGE CALCULATOR");
         // Show window
         primaryStage.show();
-
 
     }
 }
