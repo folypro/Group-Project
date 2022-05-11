@@ -42,7 +42,6 @@ public class Athenas_demo extends Application {
     // String Global
      String userName;
 
-     int pick;
 
     // Double Global
     double user_loan_amount;
@@ -90,84 +89,45 @@ public class Athenas_demo extends Application {
 
 
 
-        // Labels
+            // Labels
 
-        // Application name
-        Label myLabel = new Label("ATHENA'S MORTGAGE CALCULATOR");
+            // Application name
+            Label myLabel = new Label("ATHENA'S MORTGAGE CALCULATOR");
 
-        //Will be the description of the application to user
-        Label mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
-                "Enter all required information for your monthly payment.");
+            //Will be the description of the application to user
+            Label mortgage_calc_description = new Label("Welcome to Athena's Mortgage Calculator." +
+                    "Enter all required information for your monthly payment.");
 
-        //Will be the description to get the user's information for loan amount, years of the loan, and interest rate from the user.
-        Label loan_amount_prompt = new Label("Please enter the loan amount for your mortgage: ");
+            //Will be the description to get the user's information for loan amount, years of the loan, and interest rate from the user.
+            Label loan_amount_prompt = new Label("Please enter the loan amount for your mortgage: ");
 
-        Label loan_year_prompt = new Label("Please enter the years your loan is for: ");
+            Label loan_year_prompt = new Label("Please enter the years your loan is for: ");
 
-        Label loan_interest_rate_prompt = new Label("Please enter the interest rate for your loan: ");
+            Label loan_interest_rate_prompt = new Label("Please enter the interest rate for your loan: ");
 
-        Label ask_user_his_name = new Label("Please tell me your name, I am Athena and you are?: ");
-
-
-        // labels for the output for VBox
-        Label
-                blank = new Label(" "),
-                description_name = new Label("Here are your results "), // name will be inserted via HBox.
-                description_total_amount_paid = new Label("Total amount paid: "),
-                description_interest_paid = new Label("Interest paid: "),
-                description_monthly_mortage = new Label("Monthly mortgage: ");
+            Label ask_user_his_name = new Label("Please tell me your name, I am Athena and you are?: ");
 
 
-        //Text Fields
-        text_field_users_name = new TextField("Stranger");
-        text_field_users_loan_amount = new TextField();
-        text_field_users_interest_rate = new TextField();
-        text_field_users_loan_years = new TextField();
+            // labels for the output for VBox
+            Label
+                    description_name = new Label("Here are your results "), // name will be inserted via HBox.
+                    description_total_amount_paid = new Label("Total amount paid: "),
+                    description_interest_paid = new Label("Interest paid: "),
+                    description_monthly_mortage = new Label("Monthly mortgage: ");
 
-        // Button to convert the information
-        Button calcButton = new Button("RESULT");
 
-        // Button for male or female
-        RadioButton male_button = new RadioButton("Male");
-        RadioButton female_button = new RadioButton("Female");
+            //Text Fields
+            text_field_users_name = new TextField("Stranger");
+            text_field_users_loan_amount = new TextField();
+            text_field_users_interest_rate = new TextField();
+            text_field_users_loan_years = new TextField();
 
-        // Select male radio button
-        male_button.setSelected(true);
-
-        // Add buttons to a group
-        ToggleGroup radio_group = new ToggleGroup();
-        male_button.setToggleGroup(radio_group);
-        female_button.setToggleGroup(radio_group);
-
+            // Button to convert the information
+            Button calcButton = new Button("RESULT");
 
         // Event Handler
         calcButton.setOnAction(event ->
         {
-            // Make the users choice equal to 1 or 2 for male or female
-            pick = 0;
-            if (male_button.isSelected())
-            {
-                pick = 1;
-            }
-            if (female_button.isSelected())
-            {
-                pick = 2;
-            }
-
-            // Create a label that starts male because thats the first select choice too
-            Label users_gender = new Label("Male");
-
-
-            // Use a switch statement to pick male or female
-            switch (pick)
-            {
-                case 1:  users_gender = new Label("Male");
-                break;
-
-                case 2:  users_gender = new Label("Female");
-                break;
-            }
-
 
             // Set the users name
             label_users_name.setText(text_field_users_name.getText());
@@ -175,20 +135,22 @@ public class Athenas_demo extends Application {
             // Getting Loan from user
             Double loan = Double.parseDouble(text_field_users_loan_amount.getText());
 
-            // Making sure loan is filled in and handles errors
+            // Making sure loan is filled in
             if ( loan > 0) {
 
                 // Getting C/interest from the user
                 Double interest = Double.parseDouble(text_field_users_interest_rate.getText());
 
-                // Making sure interest is filled in and handles errors
+                // Making sure interest is filled in
                 if (interest > 0) {
 
                     // Getting N or Number of payments
                     Double years = Double.parseDouble(text_field_users_loan_years.getText());
 
-                    // Making sure years is filled in and handles errors
+                    // Making sure years is filled in
                     if (years > 0) {
+
+
 
 
                         // Payments need to be x12 for months
@@ -234,17 +196,12 @@ public class Athenas_demo extends Application {
                         PrintWriter out_put_file = new PrintWriter(total_games);
 
                         // Write to the file
+                        out_put_file.println(label_users_name);
+                        out_put_file.println(label_monthly_mortgage);
+                        out_put_file.println(label_total_amount_paid);
+                        out_put_file.println(label_interest_paid);
 
-                        // Array to hold all the information written to the file
-                        Label [] label_array =
-                                {label_users_name, users_gender, label_monthly_mortgage,
-                                        label_total_amount_paid, label_interest_paid};
 
-                        // for loop to go through and save to the file
-                        for (Label labels: label_array)
-                        {
-                            out_put_file.println(labels);
-                        }
 
                         // Close the file.
                         out_put_file.close();
@@ -277,9 +234,6 @@ public class Athenas_demo extends Application {
         // Loan lifespan in years input
         HBox h_box_4_inputs_and_questions = new HBox(loan_year_prompt,text_field_users_loan_years);
 
-        // Male or Female
-        HBox h_box_5_inputs_and_questions = new HBox(male_button,blank,female_button);
-
         // HBox for outputs
         HBox
                 // Name output
@@ -300,7 +254,6 @@ public class Athenas_demo extends Application {
                         10,
                         myLabel,
                         mortgage_calc_description,
-                        h_box_5_inputs_and_questions,
                         h_box_1_inputs_and_questions,
                         h_box_2_inputs_and_questions,
                         h_box_3_inputs_and_questions,
