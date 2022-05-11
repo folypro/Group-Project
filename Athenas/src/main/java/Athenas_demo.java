@@ -42,6 +42,8 @@ public class Athenas_demo extends Application {
     // String Global
      String userName;
 
+     // Int Global
+    int pick;
 
     // Double Global
     double user_loan_amount;
@@ -150,9 +152,6 @@ public class Athenas_demo extends Application {
                     // Making sure years is filled in
                     if (years > 0) {
 
-
-
-
                         // Payments need to be x12 for months
                         Double n_or_months = years * 12;
 
@@ -195,13 +194,15 @@ public class Athenas_demo extends Application {
                         }
                         PrintWriter out_put_file = new PrintWriter(total_games);
 
-                        // Write to the file
-                        out_put_file.println(label_users_name);
-                        out_put_file.println(label_monthly_mortgage);
-                        out_put_file.println(label_total_amount_paid);
-                        out_put_file.println(label_interest_paid);
 
+                        // Create an array to hold labels
+                        Label label_array[] = {label_users_name,label_monthly_mortgage,label_total_amount_paid,label_interest_paid};
 
+                        // Create a loop to write to the file
+                        for (Label labels: label_array)
+                        {
+                            out_put_file.println(labels);
+                        }
 
                         // Close the file.
                         out_put_file.close();
