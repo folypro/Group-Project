@@ -81,6 +81,8 @@ public class Athenas_demo extends Application {
 
                     text_field_users_interest_rate; // Users input for the interest rate.
 
+    // Global Check Boxes
+    CheckBox first_time_home_buyer_check_box;
 
     public static void main(String[] args) {
         launch(args);
@@ -115,7 +117,8 @@ public class Athenas_demo extends Application {
                     description_name = new Label("Here are your results "), // name will be inserted via HBox.
                     description_total_amount_paid = new Label("Total amount paid: "),
                     description_interest_paid = new Label("Interest paid: "),
-                    description_monthly_mortage = new Label("Monthly mortgage: ");
+                    description_monthly_mortage = new Label("Monthly mortgage: "),
+                    blank = new Label("                    ");
 
 
             //Text Fields
@@ -124,12 +127,37 @@ public class Athenas_demo extends Application {
             text_field_users_interest_rate = new TextField();
             text_field_users_loan_years = new TextField();
 
+
+            // Check Boxes
+            first_time_home_buyer_check_box = new CheckBox("First time homebuyer?");
+
+
             // Button to convert the information
             Button calcButton = new Button("RESULT");
+
 
         // Event Handler
         calcButton.setOnAction(event ->
         {
+            int selection = 2;
+
+            // Find out if first time home buyer
+            if (first_time_home_buyer_check_box.isSelected())
+            {
+                selection = 1;
+            }
+
+            Label label_first_home_or_not = new Label();
+
+            // Switch to get text field on a label.
+            switch (selection)
+            {
+                case 1: label_first_home_or_not = new Label("First Home");
+                break;
+                case 2: label_first_home_or_not = new Label("Not First Home");
+                break;
+            }
+
 
             // Set the users name
             label_users_name.setText(text_field_users_name.getText());
@@ -196,7 +224,7 @@ public class Athenas_demo extends Application {
 
 
                         // Create an array to hold labels
-                        Label label_array[] = {label_users_name,label_monthly_mortgage,label_total_amount_paid,label_interest_paid};
+                        Label label_array[] = {label_users_name,label_first_home_or_not,label_monthly_mortgage,label_total_amount_paid,label_interest_paid};
 
                         // Create a loop to write to the file
                         for (Label labels: label_array)
@@ -235,6 +263,9 @@ public class Athenas_demo extends Application {
         // Loan lifespan in years input
         HBox h_box_4_inputs_and_questions = new HBox(loan_year_prompt,text_field_users_loan_years);
 
+        // First time home buyer with calc button
+        HBox h_box_5_inputs_and_questions = new HBox(first_time_home_buyer_check_box,blank, calcButton);
+
         // HBox for outputs
         HBox
                 // Name output
@@ -259,7 +290,7 @@ public class Athenas_demo extends Application {
                         h_box_2_inputs_and_questions,
                         h_box_3_inputs_and_questions,
                         h_box_4_inputs_and_questions,
-                        calcButton,
+                        h_box_5_inputs_and_questions,
                         output_1_h_box_name,
                         output_2_h_box_total_amount_paid,
                         output_3_h_box_interest_paid,
