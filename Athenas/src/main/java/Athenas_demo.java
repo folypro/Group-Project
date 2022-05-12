@@ -196,19 +196,19 @@ public class Athenas_demo extends Application {
                         Double monthly_payments = loan * (interest_per_month_or_c * (math_power_c_1_months)) / ((math_power_c_1_months) - 1);
 
                         // Set monthly mortgage to the new amount
-                        label_monthly_mortgage.setText(String.format("%,.0f$", monthly_payments));
+                        label_monthly_mortgage.setText(String.format("$ %,.0f", monthly_payments));
 
                         // Find the total amount paid
                         Double total_amount = monthly_payments * n_or_months;
 
                         // Set the total amount
-                        label_total_amount_paid.setText(String.format("%,.2f$", total_amount));
+                        label_total_amount_paid.setText(String.format("$ %,.2f", total_amount));
 
                         // Find the interest paid
                         Double interest_only = total_amount - loan;
 
                         // Set the interest paid
-                        label_interest_paid.setText(String.format("%,.2f$", interest_only));
+                        label_interest_paid.setText(String.format("$ %,.2f", interest_only));
 
 
                         // create a file to store data
