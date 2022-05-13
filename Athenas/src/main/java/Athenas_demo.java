@@ -15,6 +15,7 @@ package Athenas.src.main.java;
 //Andrew Angell -- i will be working on the Calcbutton section for the user on 5/4/2022.
 
 
+
 import javafx.application.Application;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -92,8 +93,20 @@ public class Athenas_demo extends Application {
     public void start(Stage primaryStage) throws IOException {
 
 
+        // Radio button Andrew
+        RadioButton Male = new RadioButton("Male");
+        RadioButton Female = new RadioButton("Female");
+        ToggleGroup rg = new ToggleGroup();
+        Label Abbreviation = new Label("");
+        Label Formality = new Label("");
+        Male.setToggleGroup(rg);
+        Female.setToggleGroup(rg);
+        Male.setOnAction(event -> {Abbreviation.setText("1");});
+        Female.setOnAction(event -> {Abbreviation.setText("2");});
+        Label question2 = new Label("Please choose your sex");
 
             // Labels
+
 
             // Application name
             Label myLabel = new Label("ATHENA'S MORTGAGE CALCULATOR");
@@ -118,7 +131,9 @@ public class Athenas_demo extends Application {
                     description_total_amount_paid = new Label("Total amount paid: "),
                     description_interest_paid = new Label("Interest paid: "),
                     description_monthly_mortage = new Label("Monthly mortgage: "),
-                    blank = new Label("                    ");
+                    blank = new Label("                    "),
+                    blank2 = new Label("                    "),
+                    blank3 = new Label("                    ");
 
 
             //Text Fields
@@ -126,7 +141,6 @@ public class Athenas_demo extends Application {
             text_field_users_loan_amount = new TextField();
             text_field_users_interest_rate = new TextField();
             text_field_users_loan_years = new TextField();
-
 
             // Check Boxes
             first_time_home_buyer_check_box = new CheckBox("First time homebuyer?");
@@ -139,6 +153,23 @@ public class Athenas_demo extends Application {
         // Event Handler
         calcButton.setOnAction(event ->
         {
+
+
+            //Switch Statement for gender Andrew
+            Abbreviation.setText("" + Integer.parseInt(Abbreviation.getText()));
+
+            int sex = Integer.parseInt(Abbreviation.getText());
+
+            switch (sex) {
+                case 1:
+                    Formality.setText("Mr. ");
+                    break; // added break was missing
+                case 2:
+                    Formality.setText("Mrs. ");
+                    break; // added break was missing
+            }
+
+
             int selection = 2;
 
             // Find out if first time home buyer
@@ -235,6 +266,10 @@ public class Athenas_demo extends Application {
                         // Close the file.
                         out_put_file.close();
 
+                        // Add Mr or Mrs onto name
+                        // Set the users name
+                        label_users_name.setText(Formality.getText() + text_field_users_name.getText());
+
                     }
                 }
 
@@ -266,6 +301,8 @@ public class Athenas_demo extends Application {
         // First time home buyer with calc button
         HBox h_box_5_inputs_and_questions = new HBox(first_time_home_buyer_check_box,blank, calcButton);
 
+        HBox h_box_6_inputs_and_questions = new HBox(question2,blank2,Male,blank3, Female);
+
         // HBox for outputs
         HBox
                 // Name output
@@ -286,6 +323,7 @@ public class Athenas_demo extends Application {
                         10,
                         myLabel,
                         mortgage_calc_description,
+                        h_box_6_inputs_and_questions,
                         h_box_1_inputs_and_questions,
                         h_box_2_inputs_and_questions,
                         h_box_3_inputs_and_questions,
