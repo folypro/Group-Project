@@ -338,6 +338,7 @@ public class Athenas_demo extends Application {
         confirmation.setAlignment(Pos.CENTER);
         Scene SCENE2 = new Scene(confirmation);
         prep.setScene(SCENE2);
+
         //the comment below shows the show, whilie the while loop is run. first run was going to be used for ensuring the above code would be intitialized
         //in hope that i could use the window in the while loop, but that didnt work
         // prep.show();
@@ -350,7 +351,6 @@ public class Athenas_demo extends Application {
         //
         //
         //    firstrun = true;
-//
         conbutton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -365,20 +365,19 @@ public class Athenas_demo extends Application {
                 else h.setText("f");
 
             }
-//
         });
         //code here is meant to check the strings, and if they match a letter, then activate the conditions to break the loop
-//            if (h.toString() == "t")
-//                human = true;
-//            else
-//                human = false;
-//            if (v.toString() == "t")
-//                match = true;
-//            else match = false;
-//            if (match && human){
-//                prep.close();
-//            }
-//        }
+        // if (h.toString() == "t")
+        // human = true;
+        // else
+        // human = false;
+        // if (v.toString() == "t")
+        // match = true;
+        // else match = false;
+        // if (match && human){
+        // prep.close();
+        // }
+        // }
         // Scene
         Scene scene = new Scene(v_box_organizer, 800, 800);
 
