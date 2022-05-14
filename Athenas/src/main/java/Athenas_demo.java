@@ -379,13 +379,11 @@ public class Athenas_demo extends Application {
 //                prep.close();
 //            }
 //        }
-
         // Scene
         Scene scene = new Scene(v_box_organizer, 800, 800);
 
 
         // Stage
-
         primaryStage.setScene(scene);
         // Title the stage
         primaryStage.setTitle("ATHENA'S MORTGAGE CALCULATOR");
